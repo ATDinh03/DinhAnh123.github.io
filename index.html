@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dinh Anh | Portfolio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-light: #93c5fd;
+            --primary-dark: #1d4ed8;
+            --text-color: #1e293b;
+            --text-light: #000000;
+            --bg-color: #eff6ff;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding-top: 70px;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 1rem 5%;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+
+            padding: 8px 16px;
+            border-radius: 20px;
+
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background: linear-gradient(135deg, #4A90E2 0%, #87CEEB 100%);
+            height: 90vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+
+            color: #ffffff;
+            text-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
+            letter-spacing: -2px;
+        }
+
+        .hero .role {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* ================= CONTAINER ================= */
+
+        .container {
+            max-width: 1100px;
+            margin: -3rem auto 3rem;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+            margin-top: -120px;
+            margin-bottom: 3rem;
+
+            position: relative;
+            z-index: 5;
+
+            text-align: center;
+        }
+
+        .about-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .split-layout {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image img {
+            width: 280px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 30px;
+        }
+
+        .about-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        /* ================= SECTION TITLE ================= */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        /* ================= CARD GRID ================= */
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 30px;
+            overflow: hidden;
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+            transition: var(--transition);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .card-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-section {
+            text-align: center;
+            background: var(--white);
+
+            padding: 3rem;
+            border-radius: 12px;
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 10px 24px;
+            border-radius: 30px;
+
+            text-decoration: none;
+            font-weight: 500;
+
+            transition: var(--transition);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-fill {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-fill:hover {
+            background: var(--primary-dark);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+
+            color: var(--text-light);
+            font-size: 0.9rem;
+
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <a href="#" class="nav-logo">
+            <i class="fa-solid fa-vr-cardboard"></i>
+            Dinh Anh Portfolio
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#" class="active">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    현재 페이지 (Modern)
+                </a>
+            </li>
+
+            <li>
+                <a href="index_initial.html">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    이전 페이지 (Basic)
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+    <header class="hero">
+
+        <h1>안녕하세요,딘안입니다</h1>
+
+        <p class="role"> 국방XR학부 Student</p>
+
+    </header>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+        <!-- ABOUT -->
+
+        <section class="about-card split-layout">
+
+            <div class="about-image">
+
+                <img src="https://upload.wikimedia.org/wikipedia/en/f/f6/Tom_Tom_and_Jerry.png"
+                    alt="Profile Image">
+
+            </div>
+
+            <div class="about-text">
+
+                <h2>
+                    <i class="fa-solid fa-user"></i>
+                    About Me
+                </h2>
+
+                <p>
+                    한국에서 XR국방을 공부하고 있는 베트남 유학생 딘안입니다.
+새로운 기술과 다양한 경험을 통해 성장하는 것을 좋아합니다.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- PROJECTS -->
+
+        <h2 class="section-title">My Projects & Interests</h2>
+
+        <section class="card-grid">
+
+            <!-- CARD 1 -->
+
+            <article class="card">
+
+                <img src="https://img.magnific.com/free-vector/colleagues-discussing-new-business-project-news_778687-2945.jpg?semt=ais_hybrid&w=740&q=80"
+                    alt="VR Headset"
+                    class="card-img">
+
+                <div class="card-content">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <h3>Team Projects</h3>
+
+                    <p>
+                        다양한 팀 프로젝트에 참여하며 협업 능력과 문제 해결 능력을 향상시키고 있습니다.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!-- CARD 2 -->
+
+            <article class="card">
+
+                <img src="https://images.openai.com/static-rsc-4/5FLBVmAzGf9V4OWCbAr3TvGH-6WoYqqF56yPGdM5nVVs27PLjnFtqRpMB7RNGqwPAjSoz9JXtobE7ZIPyj83-YFLX0HcD59aYNiUP33HbwMoDJ23pzjymmXaud5a3J9NC05wuoDugVZAuDHhlQYBQB6mf_U8MbjNe2CWkIPAW_M?purpose=inline"
+                    alt="Data Analysis"
+                    class="card-img">
+
+                <div class="card-content">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    <h3>Language Skills</h3>
+
+                    <p>
+                        베트남어를 모국어로 사용하며 한국어와 영어로도 의사소통이 가능합니다.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!-- CARD 3 -->
+
+            <article class="card">
+
+                <img src="https://images.openai.com/static-rsc-4/lE_gx26uwiZlVw5m9IP_bddmZSwBaRmHcUOd5SrwKMVGuSzRXF8GGis2qEKhHxy8QSRLiVKbeOUGk82W8jlxIivD09DdzsMqolttwo2lfdrWJYt_9uVfjLt4UJRUHw5GYF2FUYj7zqUYCMFeFYife5I7Ol5bhk6fcdIWhi63s6jzJl5XA2oXLSA0U_CzyOYM?purpose=inline"
+                    alt="Medical Technology"
+                    class="card-img">
+
+                <div class="card-content">
+
+                    <i class="fa-solid fa-bed-pulse"></i>
+
+                    <h3>Creative Interests</h3>
+
+                    <p>
+                        음악 감상과 새로운 문화를 배우는 것을 좋아합니다.
+특히 BTS의 음악을 즐겨 듣습니다.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- CONTACT -->
+
+        <section class="contact-section">
+
+            <h2>Let's Connect</h2>
+
+            <p style="margin-top: 10px; color: var(--text-light);">
+                포트폴리오를 방문해 주셔서 감사합니다.
+궁금한 점이 있으시면 언제든지 연락해주세요.
+            </p>
+
+            <div class="contact-links">
+
+                <a href="mailto:loydinh@gmail.com"
+                    class="btn btn-fill">
+
+                    <i class="fa-solid fa-envelope"></i>
+                    Email Me
+
+                </a>
+
+                <a href="https://github.com/KYU-SW/ATDinh03"
+                    class="btn btn-outline"
+                    target="_blank">
+
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 Dinh Anh Portfolio. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
